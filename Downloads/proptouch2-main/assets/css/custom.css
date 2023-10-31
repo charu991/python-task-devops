@@ -1,0 +1,92 @@
+.img-left-panel {
+
+    width: 20px !important;
+    height: 20px !important;
+}
+
+
+.box-bold-border {
+    border: 10px solid #C1B2A3 !important;
+    border-radius: 10px;
+
+}
+
+.box-bold-border-icon-color {
+
+    color: white !important;
+    background-color: black !important;
+}
+
+.box-bold-border-text-color {
+
+    color: #C1B2A3 !important;
+}
+
+.box-bold-border-percentage-color {
+
+    color: #C1B2A3 !important;
+    background-color: #C1B2A3 !important;
+}
+
+
+.table-bold-border {
+    border: 10px solid #C1B2A3 !important;
+    padding: 20px !important;
+}
+
+.btn-primary,
+.btn-danger,
+.bg-success,
+.bg-danger,
+.btn-outline-primary {
+    color: white !important;
+    background-color: black !important;
+    border-color: black !important;
+    border: 1px solid black !important;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.bg-success:hover,
+.bg-danger:hover,
+.btn-outline-primary:hover {
+    color: black !important;
+    background-color: white !important;
+    border-color: black !important;
+    border: 1px solid black !important;
+}
+
+a.btn-primary:hover,
+a.btn-danger:hover,
+a.bg-success:hover,
+a.bg-danger:hover {
+    color: black !important;
+    background-color: white !important;
+    border-color: black !important;
+    border: 1px solid black !important;
+}
+
+.la-trash:hover,
+.la-plus:hover {
+    color: white !important;
+    background-color: black !important;
+    border-color: black !important;
+    border: 1px solid black !important;
+}
+
+
+.form-control {
+    border: 1px solid black !important;
+}
+
+.sidebar-default .iq-sidebar-menu .iq-menu>li.active>a {
+    color: #01041b;
+    text-decoration: none;
+    background: #C1B2A3 !important;
+}
+
+
+.svg-icon {
+
+    color: #01041b !important;
+}
