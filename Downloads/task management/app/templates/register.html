@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Register</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        form {
+            width: 300px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            color: #495057;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #495057;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- Add any additional CSS or stylesheets here -->
+</head>
+
+<body>
+
+    <h1>Register</h1>
+
+    <form method="post" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+
+        <label for="username">Username:</label>
+        {{ form.username(class="form-control", placeholder="Enter your username", autofocus=true) }}
+        {% if form.username.errors %}
+            <div class="alert alert-danger">{{ form.username.errors[0] }}</div>
+        {% endif %}
+
+        <label for="email">Email:</label>
+        {{ form.email(class="form-control", placeholder="Enter your email") }}
+        {% if form.email.errors %}
+            <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
+        {% endif %}
+
+        <label for="password">Password:</label>
+        {{ form.password(class="form-control", placeholder="Enter your password") }}
+        {% if form.password.errors %}
+            <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
+        {% endif %}
+
+        <label for="confirm_password">Confirm Password:</label>
+        {{ form.confirm_password(class="form-control", placeholder="Confirm your password") }}
+        {% if form.confirm_password.errors %}
+            <div class="alert alert-danger">{{ form.confirm_password.errors[0] }}</div>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+
+    <!-- Add any additional content or sections here -->
+
+</body>
+</html>

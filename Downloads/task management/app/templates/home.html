@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #87ceeb57; /* Light Sky Blue */
+        }
+
+        .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    height: 17rem;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+    <!-- Add any additional CSS or stylesheets here -->
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Task Manager</h1>
+
+        {% if current_user.is_authenticated %}
+        <p>Hello, {{ current_user.username }}!</p>
+        <a href="{{ url_for('tasks') }}" style="
+        width: 8rem;
+    ">Go to Tasks</a>
+        <a href="{{ url_for('logout') }}" style="
+        width: 8rem;
+        margin-top: 40px;
+
+    ">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" style="
+        width: 8rem;
+
+        margin-top: 40px;
+
+    ">Login</a>
+        <a href="{{ url_for('register') }}" style="
+        width: 8rem;
+        margin-top: 40px;
+
+    ">Register</a>
+        {% endif %}
+    </div>
+
+    <!-- Add any additional content or sections here -->
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            color: #495057;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .form-check {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            margin-top: 15px;
+        }
+
+        p {
+            margin-top: 15px;
+        }
+
+        a {
+            color: #007bff;
+        }
+    </style>
+    <!-- Add any additional CSS or stylesheets here -->
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Login</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="post" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+
+            <label for="email">Email:</label>
+            {{ form.email(class="form-control", placeholder="Enter your email", autofocus=true) }}
+            {% if form.email.errors %}
+            <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
+            {% endif %}
+
+            <label for="password">Password:</label>
+            {{ form.password(class="form-control", placeholder="Enter your password") }}
+            {% if form.password.errors %}
+            <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
+            {% endif %}
+
+            <div class="form-check">
+                {{ form.remember(class="form-check-input") }}
+                <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+
+    <!-- Add any additional content or sections here -->
+
+</body>
+
+</html>
