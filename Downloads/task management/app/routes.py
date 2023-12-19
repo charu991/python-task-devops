@@ -64,8 +64,10 @@ def tasks():
 def update_task(task_id):
     task = Task.query.get_or_404(task_id)
     form = TaskForm(obj=task)  # Create a TaskForm instance and populate it with task data
-
+    print("Update Task Route Accessed")
+    print("Task ID:", task_id)
     if form.validate_on_submit():
+        print("Task ID:", form.title.data)
         task.title = form.title.data
         task.content = form.content.data
         db.session.commit()

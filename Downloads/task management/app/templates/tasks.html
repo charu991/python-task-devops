@@ -121,7 +121,8 @@
 
             <!-- Update Task Form -->
             <form method="post" action="{{ url_for('update_task', task_id=task.id) }}">
-                {{ form.hidden_tag() }}
+                {{ form.csrf_token }}
+                <input type="hidden" name="task_id" value="{{ task.id }}">
                 <button type="submit" class="btn btn-warning">Update</button>
             </form>
 
